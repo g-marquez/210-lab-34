@@ -10,7 +10,7 @@
 #include <queue>
 using namespace std;
 
-const int SIZE = 7;
+const int SIZE = 11; //changing for Step 2
 
 struct Edge {
     int src, dest, weight;
