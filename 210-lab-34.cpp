@@ -130,10 +130,12 @@ int main() {
     return 0;
 }
 
+//getCityName() returns the city name associated with the passed node
+//arguments: an integer for the node of the respective city in the graph
+//returns: a string, the city name
 string getCityName(int node) {
-    string cities[SIZE] = {"New York (Hub)", "Boston (Coastal)", 
-                           "Philadelphia (Historic)", 
-                           "Washington D.C. (Capital)", "Baltimore (Port)", 
-                           "Richmond (Regional)", "Charlotte (Banking)", "Atlanta (Gateway)", "Raleigh (Tech)", 
-        "Nashville (Music)", "Memphis (Logistics)"};
+    string cities[SIZE] = {
+        "Berkeley", "Richmond", "Walnut Creek", "Oakland", "Alameda", "Hayward",
+        "Concord", "Antioch", "Dublin", "Pleasanton", "Fremont"};
+    return cities[node];
 }
