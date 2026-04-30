@@ -92,7 +92,7 @@ int main() {
     // Prints adjacency list representation of graph
     graph.printGraph();
 
-    cout << "\nDFS starting from vertex 0:" << endl;
+    cout << "DFS starting from vertex 0:" << endl;
     graph.DFS(0);
 
     return 0;
