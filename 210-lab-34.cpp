@@ -59,6 +59,7 @@ public:
 
         s.push(start);
 
+        cout << "DFS starting from vertex " << start << ":" << endl;
         while (!s.empty()) {
             int node = s.top();
             s.pop();
@@ -66,16 +67,14 @@ public:
             if (!visited[node]) {
                 cout << node << " ";
                 visited[node] = true;
-
-                // Push neighbors in reverse order
-                //something in here is causing the output to not be quite right
-                for (int i = adjList[node].size() - 1; i >= 0; i--) {
-                    int neighbor = adjList[node][i].first;
-                    if (!visited[neighbor]) {
-                        s.push(neighbor);
-                    }
+            }
+            // Push neighbors to stack
+            for (Pair neighbor : adjList[node]) {
+                if (!visited[neighbor.first]) {
+                        s.push(neighbor.first);
                 }
             }
+            
         }
     }
 };
@@ -93,7 +92,6 @@ int main() {
     // Prints adjacency list representation of graph
     graph.printGraph();
 
-    cout << "DFS starting from vertex 0:" << endl;
     graph.DFS(0);
 
     return 0;
