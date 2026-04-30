@@ -51,11 +51,11 @@ public:
         for (int i = 0; i < adjList.size(); i++) {
             cout << getCityName(i) << " connects to:" << endl;
             for (Pair v : adjList[i]) {
-                cout << "  -> " << getCityName(v.first) << " (Travel Time: " 
+                cout << " -> " << getCityName(v.first) << " (Travel Time: " 
                      << v.second << " mins)" << endl;
             }
-            cout << endl;
         }
+        cout << endl;
     }
 
     //Depth-First Search
