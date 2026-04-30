@@ -109,6 +109,7 @@ int main() {
     // Creates a vector of graph edges/weights
     vector<Edge> edges = {
         // (x, y, w) —> edge from x to y having weight w
+        //changed values for Step 2
         {0,1,8},{0,2,12},{0,3,9},{1,6,10},{2,6,4},
         {2,5,6},{3,4,3},{3,5,7},{4,5,10},{4,8,3},
         {5,6,7},{5,7,8},{5,8,9},{6,7,14},{8,9,5},{8,10,4}
