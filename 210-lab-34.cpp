@@ -46,11 +46,14 @@ public:
 
     // Print the graph's adjacency list
     void printGraph() {
-        cout << "Graph's adjacency list:" << endl;
+        cout << "City Travel Network Topology:" << endl;
+        cout << "================================" << endl;
         for (int i = 0; i < adjList.size(); i++) {
-            cout << i << " --> ";
-            for (Pair v : adjList[i])
-                cout << "(" << v.first << ", " << v.second << ") ";
+            cout << getCityName(i) << " connects to:" << endl;
+            for (Pair v : adjList[i]) {
+                cout << "  -> " << getCityName(v.first) << " (Travel Time: " 
+                     << v.second << " mins)" << endl;
+            }
             cout << endl;
         }
     }
