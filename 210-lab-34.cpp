@@ -68,7 +68,7 @@ public:
                 visited[node] = true;
 
                 // Push neighbors in reverse order
-                //something in here is causing the output to not be quite right
+                //something in here is causing the output to not be quite right 
                 for (int i = adjList[node].size() - 1; i >= 0; i--) {
                     int neighbor = adjList[node][i].first;
                     if (!visited[neighbor]) {
