@@ -6,6 +6,8 @@
 
 #include <iostream>
 #include <vector>
+#include <stack>
+#include <queue>
 using namespace std;
 
 const int SIZE = 7;
@@ -49,6 +51,32 @@ public:
             cout << endl;
         }
     }
+
+    //Depth-First Search
+    void DFS(int start) {
+        vector<bool> visited(SIZE, false);
+        stack<int> s;
+
+        s.push(start);
+
+        while (!s.empty()) {
+            int node = s.top();
+            s.pop();
+
+            if (!visited[node]) {
+                cout << node << " ";
+                visited[node] = true;
+
+                // Push neighbors in reverse order
+                for (int i = adjList[node].size() - 1; i >= 0; i--) {
+                    int neighbor = adjList[node][i].first;
+                    if (!visited[neighbor]) {
+                        s.push(neighbor);
+                    }
+                }
+            }
+        }
+    }
 };
 
 int main() {
@@ -63,6 +91,9 @@ int main() {
 
     // Prints adjacency list representation of graph
     graph.printGraph();
+
+    cout << "\nDFS starting from vertex 0:" << endl;
+    graph.DFS(0);
 
     return 0;
 }
