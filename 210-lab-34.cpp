@@ -73,9 +73,9 @@ public:
                 if (!visited[neighbor.first]) {
                         s.push(neighbor.first);
                 }
-            }
-            
+            }  
         }
+        cout << endl;
     }
 
     //Breadth-First Search
@@ -92,18 +92,16 @@ public:
             q.pop();
             cout << node << " ";
 
-            if (!visited[node]) {
-                cout << node << " ";
-                visited[node] = true;
-            }
-            // Push neighbors to stack
+                
+            // Push neighbors to queue
             for (Pair neighbor : adjList[node]) {
                 if (!visited[neighbor.first]) {
-                        s.push(neighbor.first);
+                    visited[neighbor.first] = true;
+                    q.push(neighbor.first);
                 }
             }
-            
         }
+        cout << endl;
     }
 };
 
@@ -120,7 +118,9 @@ int main() {
     // Prints adjacency list representation of graph
     graph.printGraph();
 
+    //output DFS & BFS
     graph.DFS(0);
+    graph.BFS(0);
 
     return 0;
 }
