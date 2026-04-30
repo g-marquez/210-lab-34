@@ -77,6 +77,34 @@ public:
             
         }
     }
+
+    //Breadth-First Search
+    void BFS(int start) {
+        vector<bool> visited(SIZE, false);
+        queue<int> q;
+
+        visited[start] = true;
+        q.push(start);
+
+        cout << "BFS starting from vertex " << start << ":" << endl;
+        while (!q.empty()) {
+            int node = q.front();
+            q.pop();
+            cout << node << " ";
+
+            if (!visited[node]) {
+                cout << node << " ";
+                visited[node] = true;
+            }
+            // Push neighbors to stack
+            for (Pair neighbor : adjList[node]) {
+                if (!visited[neighbor.first]) {
+                        s.push(neighbor.first);
+                }
+            }
+            
+        }
+    }
 };
 
 int main() {
