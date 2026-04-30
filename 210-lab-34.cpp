@@ -10,7 +10,10 @@
 #include <queue>
 using namespace std;
 
-const int SIZE = 11; //changing for Step 2
+const int SIZE = 11;
+
+//function prototype to help with application output
+string getCityName(int);
 
 struct Edge {
     int src, dest, weight;
@@ -125,4 +128,12 @@ int main() {
     graph.BFS(0);
 
     return 0;
+}
+
+string getCityName(int node) {
+    string cities[SIZE] = {"New York (Hub)", "Boston (Coastal)", 
+                           "Philadelphia (Historic)", 
+                           "Washington D.C. (Capital)", "Baltimore (Port)", 
+                           "Richmond (Regional)", "Charlotte (Banking)", "Atlanta (Gateway)", "Raleigh (Tech)", 
+        "Nashville (Music)", "Memphis (Logistics)"};
 }
