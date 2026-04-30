@@ -229,7 +229,7 @@ int main() {
 
     //output MST
     graph.findMST();
-
+    
     return 0;
 }
 
