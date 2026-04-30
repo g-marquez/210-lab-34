@@ -97,8 +97,7 @@ public:
             int node = q.front();
             q.pop();
             cout << node << " ";
-
-                
+   
             // Push neighbors to queue
             for (Pair neighbor : adjList[node]) {
                 if (!visited[neighbor.first]) {
