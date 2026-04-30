@@ -65,19 +65,26 @@ public:
 
         s.push(start);
 
-        cout << "DFS starting from vertex " << start << ":" << endl;
+        cout << "Regional Travel Trace (DFS) from " << getCityName(start) 
+             << ":" << endl;
+        cout << "Purpose: Tracing long-distance continuous travel routes" << endl;
+        cout << "=======================================================" << endl;
+
         while (!s.empty()) {
             int node = s.top();
             s.pop();
 
             if (!visited[node]) {
-                cout << node << " ";
+                cout << "Visiting " << getCityName(node) << endl;
                 visited[node] = true;
             }
             // Push neighbors to stack
             for (Pair neighbor : adjList[node]) {
                 if (!visited[neighbor.first]) {
-                        s.push(neighbor.first);
+                    cout << " -> Possible connection to " 
+                         << getCityName(neighbor.first) << " - Travel Time: " 
+                         << neighbor.second << " mins" << endl;
+                    s.push(neighbor.first);
                 }
             }  
         }
@@ -92,16 +99,22 @@ public:
         visited[start] = true;
         q.push(start);
 
-        cout << "BFS starting from vertex " << start << ":" << endl;
+        cout << "Proximity-Based City Inspection (BFS) from " << getCityName(start) 
+             << ":" << endl;
+        cout << "Purpose: Analyzing nearby cities by travel distance" << endl;
+        cout << "===================================================" << endl;
+
         while (!q.empty()) {
             int node = q.front();
             q.pop();
-            cout << node << " ";
+            cout << "Checking " << getCityName(node) << endl;
    
             // Push neighbors to queue
             for (Pair neighbor : adjList[node]) {
                 if (!visited[neighbor.first]) {
                     visited[neighbor.first] = true;
+                    cout << " -> Next closest city: " << getCityName(neighbor.first) 
+                         << " - Travel Time: " << neighbor.second << " mins" << endl;
                     q.push(neighbor.first);
                 }
             }
