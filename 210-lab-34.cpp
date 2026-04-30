@@ -161,14 +161,14 @@ public:
 
     //using Prim's Algorithm for finding minimum spanning tree
     void findMST() {
-        // Priority queue to pick the minimum weight edge: <weight, node>
+        //Priority queue to pick the minimum weight edge: <weight, node>
         priority_queue<Pair, vector<Pair>, greater<Pair>> pq;
 
         vector<int> key(SIZE, INT_MAX);    // Minimum weight to connect node
         vector<int> parent(SIZE, -1);      // To store the MST structure
         vector<bool> inMST(SIZE, false);   // To track nodes included in MST
 
-        // Start with the first city (Berkeley)
+        // Start with the first city (Berkeley, in this case)
         int startNode = 0;
         pq.push(make_pair(0, startNode));
         key[startNode] = 0;
@@ -193,14 +193,15 @@ public:
         }
 
         // Formatted Output
-        cout << "Minimum Spanning Tree edges (City Network Grid):" << endl;
-        cout << "================================================" << endl;
+        cout << "Minimum Spanning Tree edges:" << endl;
         for (int i = 1; i < SIZE; i++) {
             if (parent[i] != -1) {
-                cout << "Edge from " << getCityName(i) << " to " << getCityName(parent[i]) 
-                     << " with travel time: " << key[i] << " mins" << endl;
+                cout << "Edge from " << getCityName(i) << " to " 
+                     << getCityName(parent[i]) << " with travel time: " 
+                     << key[i] << " mins" << endl;
             }
         }
+        cout << endl;
     }
 };
 
@@ -225,6 +226,9 @@ int main() {
 
     //output shortest path
     graph.shortestPath(0);
+
+    //output MST
+    graph.findMST();
 
     return 0;
 }
