@@ -228,7 +228,7 @@ int main() {
         cout << "[0] Exit" << endl;
         cout << "Enter your choice: ";
         
-        if (!(cin >> choice)) {
+        while (!(cin >> choice)) {
             cout << "Invalid input. Please enter a number." << endl;
             cin.clear();
             cin.ignore(10000, '\n');
