@@ -8,6 +8,7 @@
 #include <vector>
 #include <stack>
 #include <queue>
+#include <climits> // Added for INT_MAX
 using namespace std;
 
 const int SIZE = 11;
@@ -121,6 +122,42 @@ public:
         }
         cout << endl;
     }
+
+    //using Dijkstra's Algorithm to find shortest path
+    void shortestPath(int node) {
+        //priority_queue stores <distance, node_index>
+        priority_queue<Pair, vector<Pair>, greater<Pair>> pq;
+        vector<int> dist(SIZE, INT_MAX);
+
+        dist[node] = 0;
+        pq.push(make_pair(0, node));
+
+        while (!pq.empty()) {
+            int u = pq.top().second;
+            pq.pop();
+
+            for (auto &neighbor : adjList[u]) {
+                int v = neighbor.first;
+                int weight = neighbor.second;
+
+                if (dist[u] + weight < dist[v]) {
+                    dist[v] = dist[u] + weight;
+                    pq.push(make_pair(dist[v], v));
+                }
+            }
+        }
+
+        // Formatted Output as requested
+        cout << "Shortest path from node " << node << ":" << endl;
+        for (int i = 0; i < SIZE; i++) {
+            if (dist[i] == INT_MAX) {
+                cout << node << " -> " << i << " : INF" << endl;
+            } else {
+                cout << node << " -> " << i << " : " << dist[i] << endl;
+            }
+        }
+        cout << endl;
+    }
 };
 
 int main() {
@@ -141,6 +178,9 @@ int main() {
     //output DFS & BFS
     graph.DFS(0);
     graph.BFS(0);
+
+    //output shortest path
+    graph.shortestPath(0);
 
     return 0;
 }
